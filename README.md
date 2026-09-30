@@ -2,6 +2,8 @@
 
 Micro-batch ETL in Python and SQLite. It loads events from three sources, rejects bad rows with a logged reason, and produces a daily KPI table for BI tools.
 
+📝 Write-up on Medium: [A Data Pipeline That Rejects Bad Rows Instead of Loading Them](https://medium.com/@bhargavpeddi/a-data-pipeline-that-rejects-bad-rows-instead-of-loading-them-8e5f8c7b739e)
+
 ![Daily net revenue by region](docs/daily_revenue.png)
 
 ## Results
@@ -17,6 +19,12 @@ Seed 42, 5,000 events, batch size 500.
 
 The two bad rows are planted on purpose so the rejection path is tested on every run.
 
+No region reaches its $5,000 daily target on any day. The West averages 28.6% of target, 14 to 17 points behind the other regions.
+
+| By region | Region by day |
+| --- | --- |
+| ![Average daily target attainment](docs/target_attainment.png) | ![Daily target attainment heatmap](docs/attainment_heatmap.png) |
+
 ## How it works
 
 1. Generate three sources: events, accounts, and regional daily targets.
@@ -31,7 +39,7 @@ Python 3.9+. The pipeline uses only the standard library; charts need matplotlib
 
 ```bash
 python3 pipeline.py        # writes outputs/report/
-python3 make_charts.py     # writes docs/daily_revenue.png
+python3 make_charts.py     # writes the charts in docs/
 python3 -m unittest -v
 ```
 

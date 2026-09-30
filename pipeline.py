@@ -143,7 +143,7 @@ body{{font:16px/1.5 system-ui,sans-serif;background:#101521;color:#edf4ff;max-wi
 h1{{font-size:clamp(2rem,6vw,3.5rem)}}.cards{{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px;margin:30px 0}}
 .card{{background:#19263a;border:1px solid #334761;border-radius:16px;padding:20px}}strong{{display:block;font-size:2rem;color:#6ddbd6}}.note{{color:#a6b8cf}}
 table{{border-collapse:collapse;width:100%}}td,th{{text-align:left;padding:12px;border-bottom:1px solid #334761}}
-</style><main><p class="note">SYNTHETIC MULTI-SOURCE MICRO-BATCH DEMO</p><h1>Pipeline run summary</h1><p>Generated data only. This local run is not connected to live business systems.</p>
+</style><main><p class="note">MICRO-BATCH ETL · PYTHON + SQLITE</p><h1>Pipeline run summary</h1><p>Three generated sources loaded in batches of 500, with every rejected row logged.</p>
 <div class="cards"><div class="card">Events loaded<strong>{loaded:,}</strong></div><div class="card">Exceptions<strong>{len(exceptions):,}</strong></div><div class="card">Net revenue<strong>${totals[1]:,.0f}</strong></div></div>
 <h2>Quality gate</h2><table><tr><th>Reason</th><th>Count</th></tr>{''.join(f'<tr><td>{html.escape(reason)}</td><td>{sum(e["reason"] == reason for e in exceptions)}</td></tr>' for reason in sorted({e['reason'] for e in exceptions}))}</table>
 <p class="note">Detailed daily measures and rejected events are in the generated CSV files.</p></main></html>"""
